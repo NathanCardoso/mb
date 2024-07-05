@@ -3,7 +3,9 @@
 </template>
 
 <script setup>
-import WelcomeView from './view/WelcomeView.vue'
+import WelcomeView from "./view/WelcomeView.vue";
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+
+</style>

@@ -1,7 +1,9 @@
 <template>
-  <h1>Welcome</h1>
+  <TheTitle message="Seja Bem vindo(a)"/>
 </template>
 
-<script setup></script>
+<script setup>
+import TheTitle from '../components/atoms/TheTitle.vue'
+</script>
 
-<style></style>
+<style scoped></style>
