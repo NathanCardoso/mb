@@ -22,6 +22,7 @@ const buttonClick = () => {
   max-width: 100%;
   padding: 15px 30px;
   padding: rem(15) rem(30);
+  background: $whiteSecondary;
   max-width: 100%;
   font-size: rem(18);
   color: $yellow;
