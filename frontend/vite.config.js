@@ -16,7 +16,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/assets/scss/config.scss";`,
+        additionalData: `
+          @import "@/assets/scss/config.scss";
+          @import "@/assets/scss/mixin/box-default.scss";
+          @import "@/assets/scss/mixin/button-actions.scss";
+        `,
       },
     },
   }
