@@ -18,16 +18,10 @@ import ButtonConfirm from "../atoms/ButtonConfirm.vue";
 
 <style lang="scss" scoped>
 .box-physical-person {
-  display: flex;
-  flex-direction: column;
-  gap: rem(20);
-  max-width: rem(400);
-  flex-grow: 1;
+  @include box-default;
 
   .button-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: rem(20);
+    @include button-actions;
   }
 }
 </style>
