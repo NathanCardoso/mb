@@ -1,7 +1,7 @@
 <template>
   <div class="the-input">
-    <label class="label" :for="inputName"> {{ inputName }} </label>
-    <input class="input" :type="inputType" :name="inputName" />
+    <label class="label" :for="inputId"> {{ inputName }} </label>
+    <input class="input" :type="inputType" :name="inputName" :id="inputId" />
   </div>
 </template>
 
@@ -15,11 +15,17 @@ defineProps({
     type: String,
     required: true,
   },
+  inputId: {
+    type: String,
+    required: true,
+  },
 });
 </script>
 
 <style lang="scss" scoped>
 .the-input {
+  max-width: rem(400);
+
   > .label {
     display: inline-block;
     margin-bottom: rem(4);
@@ -36,6 +42,7 @@ defineProps({
     font-size: rem(16);
     margin-bottom: rem(15);
     width: 100%;
+    box-sizing: border-box;
 
     &:hover,
     &:focus {

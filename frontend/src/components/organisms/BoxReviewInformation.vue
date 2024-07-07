@@ -1,16 +1,7 @@
 <template>
   <main class="box-review-information">
     <TheHeader :step="2" titleMessage="Revise suas informações" />
-    <TheInput input-name="Endereço de Email" input-id="email" />
-    <TheInput input-name="Nome" input-id="name" />
-    <TheInput input-name="CNPJ" input-id="cpf" />
-    <TheInput
-      input-type="date"
-      input-name="Data de abertura"
-      inputId="data-de-nascimento"
-    />
-    <TheInput input-type="tel" input-name="Telefone" input-id="telefone" />
-    <TheInput input-name="Senha" input-id="senha" />
+    <InputReviewInformation />
     <div class="button-actions">
       <ButtonBack text="Voltar" />
       <ButtonConfirm text="Continuar" />
@@ -20,7 +11,7 @@
 
 <script setup>
 import TheHeader from "../molecules/TheHeader.vue";
-import TheInput from "../atoms/TheInput.vue";
+import InputReviewInformation from "../molecules/InputReviewInformation.vue";
 import ButtonBack from "../atoms/ButtonBack.vue";
 import ButtonConfirm from "../atoms/ButtonConfirm.vue";
 </script>

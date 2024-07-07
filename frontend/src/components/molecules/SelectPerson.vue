@@ -21,6 +21,7 @@ import TheInputRadio from "../atoms/TheInputRadio.vue";
 
   .input-radios {
     display: flex;
+    justify-content: space-between;
     gap: rem(20);
   }
 }

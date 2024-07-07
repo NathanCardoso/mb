@@ -1,11 +1,9 @@
 <template>
-  <WelcomeView />
+  <ReviewInformation />
 </template>
 
 <script setup>
-import WelcomeView from "./view/WelcomeView.vue";
+import ReviewInformation from "./view/ReviewInformation.vue";
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

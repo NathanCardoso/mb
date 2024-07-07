@@ -1,9 +1,18 @@
 <template>
-  <TheTitle message="Seja Bem vindo(a)"/>
+  <div class="welcome-view">
+    <BoxSelectPerson />
+  </div>
 </template>
 
 <script setup>
-import TheTitle from '../components/atoms/TheTitle.vue'
+import BoxSelectPerson from "@/components/organisms/BoxSelectPerson.vue";
 </script>
 
-<style scoped></style>
+<style scoped>
+.welcome-view {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

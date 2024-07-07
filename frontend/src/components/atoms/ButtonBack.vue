@@ -28,5 +28,6 @@ const buttonClick = () => {
   color: $yellow;
   border-radius: rem(8);
   border: rem(2) solid $yellow;
+  flex-grow: 1;
 }
 </style>

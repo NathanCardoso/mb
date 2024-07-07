@@ -1,8 +1,8 @@
 <template>
   <div class="the-input-radio">
     <label class="label">
-      <input class="input" type="radio" :name="inputId" :id="inputId" />
-      {{ inputName }}
+      <input class="input" type="radio" :name="inputName" />
+      {{ inputLabel }}
       <span class="span">&nbsp;</span>
     </label>
   </div>
@@ -10,11 +10,11 @@
 
 <script setup>
 defineProps({
-  inputName: {
+  inputLabel: {
     type: String,
     required: true,
   },
-  inputId: {
+  inputName: {
     type: String,
     required: true,
   },

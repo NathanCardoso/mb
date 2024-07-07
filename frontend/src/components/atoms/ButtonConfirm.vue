@@ -26,5 +26,6 @@ const buttonClick = () => {
   border: none;
   border-radius: rem(8);
   font-size: rem(18);
+  flex-grow: 1;
 }
 </style>
