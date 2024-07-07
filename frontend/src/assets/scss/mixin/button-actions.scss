@@ -1,0 +1,5 @@
+@mixin button-actions {
+	display: flex;
+	justify-content: space-between;
+	gap: rem(20);
+}
