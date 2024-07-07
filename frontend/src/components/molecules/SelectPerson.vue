@@ -2,8 +2,8 @@
   <div class="select-person">
     <TheInput input-type="email" input-name="email" />
     <div class="input-radios">
-      <TheInputRadio input-label="Pessoa Fisica" input-name="pessoa-fisica" />
-      <TheInputRadio input-label="Pessoa Juridica" input-name="pessoa-juridica" />
+      <TheInputRadio input-label="Pessoa Fisica" input-name="physical-person" />
+      <TheInputRadio input-label="Pessoa Juridica" input-name="legal-person" />
     </div>
   </div>
 </template>

@@ -1,12 +1,8 @@
 <template>
   <TheInput input-name="Nome" input-id="name" />
   <TheInput input-name="CPF" input-id="cpf" />
-  <TheInput
-    input-type="date"
-    input-name="Data de nascimento"
-    inputId="data-de-nascimento"
-  />
-  <TheInput input-type="tel" input-name="Telefone" input-id="telefone" />
+  <TheInput input-type="date" input-name="Data de nascimento" inputId="date-of-birth" />
+  <TheInput input-type="tel" input-name="Telefone" input-id="telephone" />
 </template>
 
 <script setup>

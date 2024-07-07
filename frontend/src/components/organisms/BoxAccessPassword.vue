@@ -1,7 +1,7 @@
 <template>
   <main class="box-access-password">
     <TheHeader :step="3" title-message="Senha de Acesso" />
-    <TheInput input-name="Sua senha" input-id="sua-senha" />
+    <TheInput input-name="Sua senha" input-id="password" />
     <div class="button-actions">
       <ButtonBack text="Voltar" />
       <ButtonConfirm text="Continuar" />

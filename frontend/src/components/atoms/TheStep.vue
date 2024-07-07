@@ -22,7 +22,7 @@ defineProps({
   font-size: rem(14);
   color: $black;
 
-  > .current-stage {
+  .current-stage {
     color: $yellow;
   }
 }
