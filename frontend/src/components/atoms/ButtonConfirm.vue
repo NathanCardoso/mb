@@ -12,8 +12,10 @@ defineProps({
   },
 });
 
+const emit = defineEmits(["click:confirmed"]);
+
 const buttonClick = () => {
-  this.$emit("click:confirmed");
+  emit("click:confirmed");
 };
 </script>
 

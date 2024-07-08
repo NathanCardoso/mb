@@ -12,8 +12,10 @@ defineProps({
   },
 });
 
+const emit = defineEmits(["click:go-back"]);
+
 const buttonClick = () => {
-  this.$emit("click:go-back");
+  emit("click:go-back");
 };
 </script>
 

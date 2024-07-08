@@ -1,11 +1,17 @@
 <template>
   <div class="review-information">
-    <BoxReviewInformation />
+    <BoxReviewInformation @review-information:prev-page="prevPage" />
   </div>
 </template>
 
 <script setup>
 import BoxReviewInformation from "@/components/organisms/BoxReviewInformation.vue";
+
+const emit = defineEmits(["review-information:prev-page"]);
+
+const prevPage = () => {
+  emit("review-information:prev-page", 3);
+};
 </script>
 
 <style lang="scss" scoped>
