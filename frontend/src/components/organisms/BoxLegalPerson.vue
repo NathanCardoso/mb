@@ -1,10 +1,14 @@
 <template>
   <main class="box-legal-person">
     <TheHeader :step="2" titleMessage="Pessoa Jurídica" />
-    <InputLegalPerson />
+    <InputLegalPerson @input:status="inputValidate" />
     <div class="button-actions">
       <ButtonBack text="Voltar" @click:go-back="prevPage" />
-      <ButtonConfirm text="Continuar" @click:confirmed="nextPage" />
+      <ButtonConfirm
+        text="Continuar"
+        :disabled="isButtonEnable"
+        @click:confirmed="nextPage"
+      />
     </div>
   </main>
 </template>
@@ -14,8 +18,11 @@ import TheHeader from "../molecules/TheHeader.vue";
 import InputLegalPerson from "../molecules/InputLegalPerson.vue";
 import ButtonBack from "../atoms/ButtonBack.vue";
 import ButtonConfirm from "../atoms/ButtonConfirm.vue";
+import { ref } from "vue";
 
 const emit = defineEmits(["legal-person:next-page", "legal-person:prev-page"]);
+
+const isButtonEnable = ref(true);
 
 const nextPage = () => {
   emit("legal-person:next-page");
@@ -23,6 +30,11 @@ const nextPage = () => {
 
 const prevPage = () => {
   emit("legal-person:prev-page");
+};
+
+const inputValidate = (status) => {
+  console.log(status);
+  status ? (isButtonEnable.value = !status) : null;
 };
 </script>
 
