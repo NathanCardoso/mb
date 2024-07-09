@@ -35,12 +35,15 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["input:status"]);
+const emit = defineEmits(["input:status", "input:value"]);
 
 const { inputValue, error, validate, onBlur } = useForm(props.validate);
 const inputStatus = ref(false);
 
-watch(inputValue, (newValue) => (inputStatus.value = validate(newValue)));
+watch(inputValue, (newValue) => {
+  inputStatus.value = validate(newValue);
+  emit("input:value", newValue);
+});
 
 watch(inputStatus, (newValue) =>
   newValue ? emit("input:status", inputStatus.value) : null

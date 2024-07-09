@@ -5,6 +5,7 @@
       input-name="email"
       validate="email"
       @input:status="inputValidate"
+      @input:value="inputValue"
     />
     <div class="input-radios">
       <TheInputRadio
@@ -28,17 +29,20 @@ import TheInput from "../atoms/TheInput.vue";
 import TheInputRadio from "../atoms/TheInputRadio.vue";
 import { ref, watch } from "vue";
 
-const emit = defineEmits(["input:status", "input:picked"]);
+const emit = defineEmits(["input:status", "input:picked", "input:value"]);
 
 const pickedValue = ref("");
 
 watch(pickedValue, (newValue) => {
-  window.localStorage.setItem("pickedValue", newValue);
   emit("input:picked", newValue);
 });
 
 const inputValidate = (status) => {
   emit("input:status", status);
+};
+
+const inputValue = (value) => {
+  emit("input:value", value);
 };
 </script>
 
