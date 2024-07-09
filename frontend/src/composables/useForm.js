@@ -1,5 +1,6 @@
 import { ref } from "vue"
 import { cpfValid } from "@/js/helpers/cpfValidate"
+import { cnpjValid } from "@/js/helpers/cnpjValidate"
 
 const types = {
 	fullName: {
@@ -22,6 +23,9 @@ const types = {
 	cpf: {
 		message: "CPF inválido."
 	},
+	cnpj: {
+		message: "CNPJ inválido."
+	},
 	telephone: {
 		regex: /^\(\d{2}\) \d{5}-\d{4}$/,
 		message: "Preencha um telefone válido"
@@ -37,6 +41,16 @@ function useForm(type) {
 
 		if(type === 'cpf') {
 			if(cpfValid(data)) {
+				error.value = null
+				return true
+			} else {
+				error.value = types[type].message
+				return false
+			}
+		}
+
+		if(type === 'cnpj') {
+			if(cnpjValid(data)) {
 				error.value = null
 				return true
 			} else {
