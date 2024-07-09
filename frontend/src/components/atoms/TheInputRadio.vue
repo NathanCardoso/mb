@@ -1,7 +1,13 @@
 <template>
   <div class="the-input-radio">
     <label class="label">
-      <input class="input" type="radio" :name="inputName" />
+      <input
+        class="input"
+        type="radio"
+        :name="inputName"
+        :value="inputValue"
+        v-model="picked"
+      />
       {{ inputLabel }}
       <span class="span">&nbsp;</span>
     </label>
@@ -18,7 +24,17 @@ defineProps({
     type: String,
     required: true,
   },
+  inputValue: {
+    type: String,
+    required: true,
+  },
+  modelValue: {
+    type: String,
+    required: true,
+  },
 });
+
+const picked = defineModel("picked");
 </script>
 
 <style lang="scss" scoped>
