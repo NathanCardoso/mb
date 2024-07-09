@@ -33,7 +33,6 @@ const prevPage = () => {
 };
 
 const inputValidate = (status) => {
-  console.log(status);
   status ? (isButtonEnable.value = !status) : null;
 };
 </script>
