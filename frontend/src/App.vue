@@ -5,7 +5,11 @@
     @physical-person:next-page="nextPage"
     @physical-person:prev-page="prevPage"
   />
-  <LegalPerson v-else-if="pageStep === 2 && typePerson === 'legal-person'" />
+  <LegalPerson
+    v-else-if="pageStep === 2 && typePerson === 'legal-person'"
+    @legal-person:next-page="nextPage"
+    @legal-person:prev-page="prevPage"
+  />
   <AccessPassword
     v-else-if="pageStep === 3"
     @access-password:next-page="nextPage"
