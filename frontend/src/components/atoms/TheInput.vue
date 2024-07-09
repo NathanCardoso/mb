@@ -33,9 +33,9 @@ defineProps({
   },
 });
 
-const inputStatus = ref(false);
-
 const emit = defineEmits(["input:status"]);
+
+const inputStatus = ref(false);
 
 watch(inputValue, (newValue) => (inputStatus.value = validate(newValue)));
 
