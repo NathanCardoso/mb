@@ -1,6 +1,11 @@
 import { ref } from "vue"
+import { cpfValid } from "@/js/helpers/cpfValidate"
 
 const types = {
+	fullName: {
+		regex: /^(?!.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b)(?!.*\s{2,})[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ]+)+$/,
+		message: "Preencha seu nome completo."
+	},
 	email: {
 		regex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
 		message: "Preencha um e-mail válido."
@@ -13,15 +18,33 @@ const types = {
 		initialVariable: "0.00",
 		regex: /\d+(\.\d*)?$/,
 		message: 'Utilize apenas números.'
+	},
+	cpf: {
+		message: "CPF inválido."
+	},
+	telephone: {
+		regex: /^\(\d{2}\) \d{5}-\d{4}$/,
+		message: "Preencha um telefone válido"
 	}
 }
 
 function useForm(type) {
-	const inputValue = ref(types[type].initialVariable)
+	const inputValue = ref(types[type]?.initialVariable)
 	const error = ref(null)
 
 	function validate(data) {
 		if (type === false) return true
+
+		if(type === 'cpf') {
+			if(cpfValid(data)) {
+				error.value = null
+				return true
+			} else {
+				error.value = types[type].message
+				return false
+			}
+		}
+
 		if (data.length === 0) {
 			error.value = "Preencha um valor"
 			return false
