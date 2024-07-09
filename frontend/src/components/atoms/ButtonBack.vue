@@ -31,5 +31,6 @@ const buttonClick = () => {
   border-radius: rem(8);
   border: rem(2) solid $yellow;
   flex-grow: 1;
+  cursor: pointer;
 }
 </style>
