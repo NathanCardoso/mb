@@ -19,7 +19,7 @@ import InputPhysicalPerson from "../molecules/InputPhysicalPerson.vue";
 import ButtonBack from "../atoms/ButtonBack.vue";
 import ButtonConfirm from "../atoms/ButtonConfirm.vue";
 import { ref } from "vue";
-import { setLocalStorage } from "@/js/helpers/setLocalStorage";
+import { setLocalStorage, removeLocalStorage } from "@/js/helpers/localStorage";
 
 const emit = defineEmits(["physical-person:next-page", "physical-person:prev-page"]);
 
@@ -27,6 +27,7 @@ const isButtonEnable = ref(true);
 const physicalPerson = ref({});
 
 const nextPage = () => {
+  removeLocalStorage("legalPerson");
   setLocalStorage("physicalPerson", JSON.stringify(physicalPerson.value));
   emit("physical-person:next-page");
 };

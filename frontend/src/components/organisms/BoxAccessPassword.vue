@@ -25,7 +25,7 @@ import TheInput from "../atoms/TheInput.vue";
 import ButtonBack from "../atoms/ButtonBack.vue";
 import ButtonConfirm from "../atoms/ButtonConfirm.vue";
 import { ref } from "vue";
-import { setLocalStorage } from "@/js/helpers/setLocalStorage";
+import { setLocalStorage } from "@/js/helpers/localStorage";
 
 const emit = defineEmits([
   "access-password:next-page",

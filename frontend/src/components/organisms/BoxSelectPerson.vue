@@ -19,7 +19,7 @@ import TheHeader from "../molecules/TheHeader.vue";
 import SelectPerson from "../molecules/SelectPerson.vue";
 import ButtonConfirm from "../atoms/ButtonConfirm.vue";
 import { ref, computed, watch } from "vue";
-import { setLocalStorage } from "@/js/helpers/setLocalStorage";
+import { setLocalStorage } from "@/js/helpers/localStorage";
 
 const emit = defineEmits(["select-person:next-page"]);
 
