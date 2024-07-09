@@ -27,7 +27,10 @@ const emit = defineEmits(["input:status", "input:picked"]);
 
 const pickedValue = ref("");
 
-watch(pickedValue, (newValue) => emit("input:picked", newValue));
+watch(pickedValue, (newValue) => {
+  window.localStorage.setItem("pickedValue", newValue);
+  emit("input:picked", newValue);
+});
 
 const inputValidate = (status) => {
   emit("input:status", status);
