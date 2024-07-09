@@ -1,11 +1,23 @@
 <template>
   <div class="the-input">
     <label class="label" :for="inputId"> {{ inputName }} </label>
-    <input class="input" :type="inputType" :name="inputName" :id="inputId" />
+    <input
+      class="input"
+      :type="inputType"
+      :name="inputName"
+      :id="inputId"
+      v-model="inputValue"
+      :on-blur="onBlur"
+    />
+    <p v-show="error" class="error">{{ error }}</p>
   </div>
 </template>
 
 <script setup>
+import { ref, watch } from "vue";
+import useForm from "@/composables/useForm";
+const { inputValue, error, validate, onBlur } = useForm("email");
+
 defineProps({
   inputType: {
     type: String,
@@ -20,6 +32,16 @@ defineProps({
     required: true,
   },
 });
+
+const inputStatus = ref(false);
+
+const emit = defineEmits(["input:status"]);
+
+watch(inputValue, (newValue) => (inputStatus.value = validate(newValue)));
+
+watch(inputStatus, (newValue) =>
+  newValue ? emit("input:status", inputStatus.value) : null
+);
 </script>
 
 <style lang="scss" scoped>
@@ -50,6 +72,11 @@ defineProps({
       box-shadow: rem(0) rem(6) rem(12) $shadowAlt;
       border-color: $yellow;
     }
+  }
+
+  .error {
+    color: $redPrimary;
+    font-size: 0.875rem;
   }
 }
 </style>
