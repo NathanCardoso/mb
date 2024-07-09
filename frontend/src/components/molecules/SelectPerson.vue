@@ -1,6 +1,11 @@
 <template>
   <div class="select-person">
-    <TheInput input-type="email" input-name="email" @input:status="inputValidate" />
+    <TheInput
+      input-type="email"
+      input-name="email"
+      validate="email"
+      @input:status="inputValidate"
+    />
     <div class="input-radios">
       <TheInputRadio
         input-label="Pessoa Fisica"

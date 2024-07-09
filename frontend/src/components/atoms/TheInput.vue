@@ -16,9 +16,8 @@
 <script setup>
 import { ref, watch } from "vue";
 import useForm from "@/composables/useForm";
-const { inputValue, error, validate, onBlur } = useForm("email");
 
-defineProps({
+const props = defineProps({
   inputType: {
     type: String,
     default: "text",
@@ -31,10 +30,14 @@ defineProps({
     type: String,
     required: true,
   },
+  validate: {
+    type: String,
+  },
 });
 
 const emit = defineEmits(["input:status"]);
 
+const { inputValue, error, validate, onBlur } = useForm(props.validate);
 const inputStatus = ref(false);
 
 watch(inputValue, (newValue) => (inputStatus.value = validate(newValue)));
