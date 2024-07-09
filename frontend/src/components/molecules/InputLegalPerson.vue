@@ -4,12 +4,14 @@
     input-id="name"
     validate="fullName"
     @input:status="inputValidate('fullName', $event)"
+    @input:value="inputValue('corporateReason', $event)"
   />
   <TheInput
     input-name="CNPJ"
     input-id="cnpj"
     validate="cnpj"
     @input:status="inputValidate('cnpj', $event)"
+    @input:value="inputValue('cnpj', $event)"
   />
   <TheInput input-type="date" input-name="Data de abertura" inputId="opening-date" />
   <TheInput
@@ -18,6 +20,7 @@
     input-id="telephone"
     validate="telephone"
     @input:status="inputValidate('telephone', $event)"
+    @input:value="inputValue('tel', $event)"
   />
 </template>
 
@@ -43,6 +46,10 @@ const inputValidate = (input, status) => {
       isTelephoneValid.value = status;
       break;
   }
+};
+
+const inputValue = (key, value) => {
+  emit("input:value", { key, value });
 };
 
 watch(
