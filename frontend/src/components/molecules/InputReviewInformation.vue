@@ -1,6 +1,7 @@
 <template>
   <TheInput
     input-name="Endereço de Email"
+    input-type="email"
     input-id="email"
     input-validate="email"
     :input-data="inputData.email"
