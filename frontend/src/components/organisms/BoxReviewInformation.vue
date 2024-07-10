@@ -8,7 +8,11 @@
     />
     <div class="button-actions">
       <ButtonBack text="Voltar" @click:go-back="prevPage" />
-      <ButtonConfirm text="Continuar" :disabled="isButtonEnable" />
+      <ButtonConfirm
+        text="Continuar"
+        :disabled="isButtonEnable"
+        @click:confirmed="formSubmit"
+      />
     </div>
   </main>
 </template>
@@ -21,7 +25,7 @@ import ButtonConfirm from "../atoms/ButtonConfirm.vue";
 import { ref, computed, onMounted } from "vue";
 import { getLocalStorage } from "@/js/helpers/localStorage";
 
-const emit = defineEmits(["review-information:prev-page"]);
+const emit = defineEmits(["review-information:prev-page", "review-information:submit"]);
 
 const typePerson = ref("");
 const dataReview = ref({});
@@ -42,6 +46,12 @@ const inputValue = ({ key, value }) => {
 
 const inputValidate = (status) => {
   status ? (isButtonEnable.value = !status) : null;
+};
+
+const formSubmit = () => {
+  isPhysicalPerson.value
+    ? emit("review-information:submit", physicalPerson)
+    : emit("review-information:submit", legalPerson);
 };
 
 onMounted(() => {

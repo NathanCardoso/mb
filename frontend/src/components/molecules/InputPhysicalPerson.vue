@@ -61,7 +61,6 @@ watch(
 );
 
 const inputValue = (key, value) => {
-  console.log(value);
   emit("input:value", { key, value });
 };
 </script>
