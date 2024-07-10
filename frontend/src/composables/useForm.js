@@ -16,7 +16,6 @@ const types = {
 		message: "A senha precisa ter uma caracter maísculo, 1 minúsculo e 1 digito. Com no mínimo 8 caracteres."
 	},
 	number: {
-		initialVariable: "0.00",
 		regex: /\d+(\.\d*)?$/,
 		message: 'Utilize apenas números.'
 	},
@@ -32,8 +31,8 @@ const types = {
 	}
 }
 
-function useForm(type) {
-	const inputValue = ref(types[type]?.initialVariable)
+function useForm(type, inputData) {
+	const inputValue = ref(inputData)
 	const error = ref(null)
 
 	function validate(data) {

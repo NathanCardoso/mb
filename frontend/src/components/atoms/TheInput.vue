@@ -6,18 +6,22 @@
       :type="inputType"
       :name="inputName"
       :id="inputId"
-      v-model="inputValue"
       :on-blur="onBlur"
+      v-model="inputValue"
     />
     <p v-show="error" class="error">{{ error }}</p>
   </div>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { nextTick, ref, watch } from "vue";
 import useForm from "@/composables/useForm";
 
 const props = defineProps({
+  inputData: {
+    type: String || Number || Date,
+    default: "",
+  },
   inputType: {
     type: String,
     default: "text",
@@ -37,7 +41,9 @@ const props = defineProps({
 
 const emit = defineEmits(["input:status", "input:value"]);
 
-const { inputValue, error, validate, onBlur } = useForm(props.validate);
+const inputLocalData = ref("");
+
+const { inputValue, error, validate, onBlur } = useForm(props.validate, inputLocalData);
 const inputStatus = ref(false);
 
 watch(inputValue, (newValue) => {
@@ -48,6 +54,10 @@ watch(inputValue, (newValue) => {
 watch(inputStatus, (newValue) =>
   newValue ? emit("input:status", inputStatus.value) : null
 );
+
+nextTick(() => {
+  if (!!props.inputData !== false) inputLocalData.value = props.inputData;
+});
 </script>
 
 <style lang="scss" scoped>
