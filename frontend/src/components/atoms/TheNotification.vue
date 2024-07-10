@@ -39,7 +39,7 @@ onMounted(() =>
   z-index: 999;
   max-width: rem(320);
   position: absolute;
-  top: 5%;
+  top: 3%;
   right: 5%;
 
   &.start {

@@ -25,17 +25,29 @@ const emit = defineEmits(["review-information:prev-page"]);
 const { data, error, loading, request } = useFetch();
 const notification = ref(false);
 const messageNotification = ref("Usuário cadastrado com sucesso");
-const idTimeout = ref(null);
+const idTimeoutNotification = ref(null);
+const idTimeoutPrevPage = ref(null);
 
 watch(notification, (newValue) => {
   if (newValue) {
-    idTimeout.value = setTimeout(() => {
+    idTimeoutNotification.value = setTimeout(() => {
       notification.value = !newValue;
     }, 5000);
 
-    clearTimeout(idTimeout);
+    clearTimeout(idTimeoutNotification);
   }
 });
+
+const prevPage = () => {
+  emit("review-information:prev-page", 1);
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
 const handleSubmit = async (form) => {
   const { urlApi, options } = POST_USER(form.value);
@@ -45,17 +57,11 @@ const handleSubmit = async (form) => {
 
   notification.value = true;
   scrollToTop();
-};
 
-const prevPage = () => {
-  emit("review-information:prev-page", 3);
-};
-
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+  idTimeoutPrevPage.value = setTimeout(() => {
+    prevPage();
+  }, 5000);
+  clearTimeout(idTimeoutPrevPage);
 };
 </script>
 
