@@ -1,6 +1,6 @@
 export const formTypes = {
 	fullName: {
-		regex: /^(?!.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b)(?!.*\s{2,})[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ]+)+$/,
+		regex: /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)+$/,
 		message: "Preencha seu nome completo."
 	},
 	email: {
@@ -22,7 +22,7 @@ export const formTypes = {
 		message: "CNPJ inválido."
 	},
 	telephone: {
-		regex: /^\d{11}$/,
+		regex: /^\d{9}$/,
 		message: "Preencha um telefone válido"
 	}
 }

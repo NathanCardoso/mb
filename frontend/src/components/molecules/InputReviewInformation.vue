@@ -67,6 +67,7 @@
     input-name="Telefone"
     input-id="telephone"
     input-validate="telephone"
+    :input-max-length="9"
     :input-data="inputData.tel"
     @input:status="inputValidate('tel', $event)"
     @input:value="inputValue('tel', $event)"

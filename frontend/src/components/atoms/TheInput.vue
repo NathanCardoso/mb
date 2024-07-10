@@ -7,6 +7,7 @@
       :name="inputName"
       :id="inputId"
       :on-blur="onBlur"
+      :maxlength="inputMaxLength"
       v-model="inputValue"
     />
     <p v-show="error" class="error">{{ error }}</p>
@@ -36,6 +37,9 @@ const props = defineProps({
   },
   inputValidate: {
     type: String,
+  },
+  inputMaxLength: {
+    type: Number,
   },
 });
 
