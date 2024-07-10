@@ -3,7 +3,7 @@
     <TheInput
       input-type="email"
       input-name="email"
-      validate="email"
+      input-validate="email"
       @input:status="inputValidate"
       @input:value="inputValue"
     />

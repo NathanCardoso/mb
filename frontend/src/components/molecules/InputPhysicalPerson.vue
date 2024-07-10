@@ -2,14 +2,14 @@
   <TheInput
     input-name="Nome"
     input-id="name"
-    validate="fullName"
+    input-validate="fullName"
     @input:status="inputValidate('fullName', $event)"
     @input:value="inputValue('name', $event)"
   />
   <TheInput
     input-name="CPF"
     input-id="cpf"
-    validate="cpf"
+    input-validate="cpf"
     @input:status="inputValidate('cpf', $event)"
     @input:value="inputValue('cpf', $event)"
   />
@@ -17,14 +17,14 @@
     input-type="text"
     input-name="Data de nascimento"
     inputId="date-of-birth"
-    validate="date"
+    input-validate="date"
     @input:value="inputValue"
   />
   <TheInput
     input-type="tel"
     input-name="Telefone"
     input-id="telephone"
-    validate="telephone"
+    input-validate="telephone"
     @input:status="inputValidate('telephone', $event)"
     @input:value="inputValue('tel', $event)"
   />

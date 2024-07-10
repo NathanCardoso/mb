@@ -34,7 +34,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  validate: {
+  inputValidate: {
     type: String,
   },
 });
@@ -43,7 +43,10 @@ const emit = defineEmits(["input:status", "input:value"]);
 
 const inputLocalData = ref("");
 
-const { inputValue, error, validate, onBlur } = useForm(props.validate, inputLocalData);
+const { inputValue, error, validate, onBlur } = useForm(
+  props.inputValidate,
+  inputLocalData
+);
 const inputStatus = ref(false);
 
 watch(inputValue, (newValue) => {

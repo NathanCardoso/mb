@@ -5,6 +5,7 @@
       input-name="Sua senha"
       input-id="password"
       validate="password"
+      input-validate="password"
       @input:status="inputValidate('password', $event)"
       @input:value="inputValue"
     />

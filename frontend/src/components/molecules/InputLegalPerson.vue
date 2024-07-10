@@ -2,14 +2,14 @@
   <TheInput
     input-name="Razão Social"
     input-id="name"
-    validate="fullName"
+    input-validate="fullName"
     @input:status="inputValidate('fullName', $event)"
     @input:value="inputValue('corporateReason', $event)"
   />
   <TheInput
     input-name="CNPJ"
     input-id="cnpj"
-    validate="cnpj"
+    input-validate="cnpj"
     @input:status="inputValidate('cnpj', $event)"
     @input:value="inputValue('cnpj', $event)"
   />
@@ -17,14 +17,14 @@
     input-type="text"
     input-name="Data de abertura"
     input-id="opening-date"
-    validate="date"
+    input-validate="date"
     @input:value="inputValue"
   />
   <TheInput
     input-type="tel"
     input-name="Telefone"
     input-id="telephone"
-    validate="telephone"
+    input-validate="telephone"
     @input:status="inputValidate('telephone', $event)"
     @input:value="inputValue('tel', $event)"
   />
