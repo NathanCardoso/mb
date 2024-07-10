@@ -7,7 +7,11 @@
       @input:value="inputValue"
     />
     <div class="button-actions">
-      <ButtonBack text="Voltar" @click:go-back="prevPage" />
+      <ButtonBack
+        text="Voltar"
+        @click:go-back="prevPage"
+        :disabled="isButtonEnable || reviewLoading"
+      />
       <ButtonConfirm
         text="Continuar"
         :disabled="isButtonEnable || reviewLoading"
