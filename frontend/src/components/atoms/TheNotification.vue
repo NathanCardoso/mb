@@ -39,7 +39,7 @@ onMounted(() =>
   z-index: 999;
   max-width: rem(320);
   position: absolute;
-  top: 0;
+  top: 5%;
   right: 5%;
 
   &.start {
@@ -84,9 +84,8 @@ onMounted(() =>
 }
 
 @media screen and (max-width: 479px) {
-  .the-notification-entrance,
-  .the-notification-exit {
-    max-width: rem(225);
+  .the-notification {
+    top: 0%;
   }
 }
 </style>

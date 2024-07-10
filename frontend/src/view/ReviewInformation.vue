@@ -44,10 +44,18 @@ const handleSubmit = async (form) => {
   if (data.value === null) messageNotification.value = error.value;
 
   notification.value = true;
+  scrollToTop();
 };
 
 const prevPage = () => {
   emit("review-information:prev-page", 3);
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };
 </script>
 
