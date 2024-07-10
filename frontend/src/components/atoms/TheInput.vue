@@ -54,9 +54,7 @@ watch(inputValue, (newValue) => {
   emit("input:value", newValue);
 });
 
-watch(inputStatus, (newValue) =>
-  newValue ? emit("input:status", inputStatus.value) : null
-);
+watch(inputStatus, (newValue) => emit("input:status", newValue));
 
 nextTick(() => {
   if (!!props.inputData !== false) inputLocalData.value = props.inputData;

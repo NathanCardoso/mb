@@ -14,11 +14,12 @@
     @input:value="inputValue('cpf', $event)"
   />
   <TheInput
-    input-type="text"
+    input-type="date"
     input-name="Data de nascimento"
     inputId="date-of-birth"
     input-validate="date"
-    @input:value="inputValue"
+    @input:status="inputValidate('date', $event)"
+    @input:value="inputValue('date', $event)"
   />
   <TheInput
     input-type="tel"
@@ -60,6 +61,7 @@ watch(
 );
 
 const inputValue = (key, value) => {
+  console.log(value);
   emit("input:value", { key, value });
 };
 </script>

@@ -2,35 +2,7 @@ import { ref } from "vue"
 import { cpfValid } from "@/js/helpers/cpfValidate"
 import { cnpjValid } from "@/js/helpers/cnpjValidate"
 import { dateValidade } from "@/js/helpers/dateValidate"
-
-const types = {
-	fullName: {
-		regex: /^(?!.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b.*\b[A-Za-zÀ-ÖØ-öø-ÿ]+\b)(?!.*\s{2,})[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s+[A-Za-zÀ-ÖØ-öø-ÿ]+)+$/,
-		message: "Preencha seu nome completo."
-	},
-	email: {
-		regex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-		message: "Preencha um e-mail válido."
-	},
-	password: {
-		regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
-		message: "A senha precisa ter uma caracter maísculo, 1 minúsculo e 1 digito. Com no mínimo 8 caracteres."
-	},
-	date: {
-		regex: /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[012])\/(19\d{2}|20\d{2})$/,
-		message: 'Preencha uma data válida.'
-	},
-	cpf: {
-		message: "CPF inválido."
-	},
-	cnpj: {
-		message: "CNPJ inválido."
-	},
-	telephone: {
-		regex: /^\(\d{2}\) \d{5}-\d{4}$/,
-		message: "Preencha um telefone válido"
-	}
-}
+import { formTypes } from "@/js/helpers/formTypes"
 
 function useForm(type, inputData) {
 	const inputValue = ref(inputData)
@@ -44,7 +16,7 @@ function useForm(type, inputData) {
 				error.value = null
 				return true
 			} else {
-				error.value = types[type].message
+				error.value = formTypes[type].message
 				return false
 			}
 		}
@@ -54,7 +26,7 @@ function useForm(type, inputData) {
 				error.value = null
 				return true
 			} else {
-				error.value = types[type].message
+				error.value = formTypes[type].message
 				return false
 			}
 		}
@@ -64,7 +36,7 @@ function useForm(type, inputData) {
 				error.value = null
 				return true
 			} else {
-				error.value = types[type].message
+				error.value = formTypes[type].message
 				return false
 			}
 		}
@@ -72,8 +44,8 @@ function useForm(type, inputData) {
 		if (data.length === 0) {
 			error.value = "Preencha um valor"
 			return false
-		} else if (types[type] && !types[type].regex.test(data)) {
-			error.value = types[type].message
+		} else if (formTypes[type] && !formTypes[type].regex.test(data)) {
+			error.value = formTypes[type].message
 			return false
 		} else {
 			error.value = null

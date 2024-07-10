@@ -1,5 +1,5 @@
 export const dateValidade = (date) => {
-  const [day, month, year] = date.split('/').map(Number);
+  const [day, month, year] = date.split('-').reverse().map(Number);
   const dateObjeto = new Date(year, month - 1, day);
 
   if (dateObjeto.getFullYear() !== year
