@@ -10,6 +10,7 @@
     input-name="CPF"
     input-id="cpf"
     input-validate="cpf"
+    :input-max-length="11"
     @input:status="inputValidate('cpf', $event)"
     @input:value="inputValue('cpf', $event)"
   />

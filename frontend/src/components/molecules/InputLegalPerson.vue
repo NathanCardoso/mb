@@ -10,6 +10,7 @@
     input-name="CNPJ"
     input-id="cnpj"
     input-validate="cnpj"
+    :input-max-length="14"
     @input:status="inputValidate('cnpj', $event)"
     @input:value="inputValue('cnpj', $event)"
   />
