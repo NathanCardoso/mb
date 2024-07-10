@@ -1,5 +1,10 @@
 <template>
-  <button class="button" @click="buttonClick">
+  <button
+    class="button"
+    :class="{ disabled: disabled }"
+    :disabled="disabled"
+    @click="buttonClick"
+  >
     {{ text }}
   </button>
 </template>
@@ -9,6 +14,10 @@ defineProps({
   text: {
     type: String,
     required: true,
+  },
+  disabled: {
+    type: Boolean,
+    default: true,
   },
 });
 
@@ -32,5 +41,10 @@ const buttonClick = () => {
   border: rem(2) solid $yellow;
   flex-grow: 1;
   cursor: pointer;
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 </style>
