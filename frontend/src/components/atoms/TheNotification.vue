@@ -38,6 +38,9 @@ onMounted(() =>
   right: rem(20);
   z-index: 999;
   max-width: rem(320);
+  position: absolute;
+  top: 0;
+  right: 5%;
 
   &.start {
     animation: animeStart 0.5s forwards;

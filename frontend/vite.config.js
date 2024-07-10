@@ -20,6 +20,7 @@ export default defineConfig({
           @import "@/assets/scss/config.scss";
           @import "@/assets/scss/mixin/box-default.scss";
           @import "@/assets/scss/mixin/button-actions.scss";
+					@import "@/assets/scss/mixin/view-default.scss";
         `,
       },
     },

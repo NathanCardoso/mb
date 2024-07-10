@@ -6,8 +6,8 @@ export function useFetch() {
 	const loading = ref(false)
 
 	const request = async (url, options) => {
-		let response
-		let responseJson
+		let response = null
+		let responseJson = null
 		loading.value = true
 
 		try {

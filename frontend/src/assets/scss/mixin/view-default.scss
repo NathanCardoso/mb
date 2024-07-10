@@ -1,0 +1,13 @@
+@mixin view-default {
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	height: 100vh;
+}
+
+@mixin view-alt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(24) 0;
+}

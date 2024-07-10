@@ -2,7 +2,7 @@ const api = import.meta.env.VITE_BASE_URL
 
   export function POST_USER(body) {
   return {
-    urlApi: api + '/s',
+    urlApi: api + '/registration',
 		options: {
 			method: 'POST',
 			headers: {

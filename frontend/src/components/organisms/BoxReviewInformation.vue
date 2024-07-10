@@ -10,7 +10,7 @@
       <ButtonBack text="Voltar" @click:go-back="prevPage" />
       <ButtonConfirm
         text="Continuar"
-        :disabled="isButtonEnable"
+        :disabled="isButtonEnable || reviewLoading"
         @click:confirmed="formSubmit"
       />
     </div>
@@ -24,6 +24,13 @@ import ButtonBack from "../atoms/ButtonBack.vue";
 import ButtonConfirm from "../atoms/ButtonConfirm.vue";
 import { ref, computed, onMounted } from "vue";
 import { getLocalStorage } from "@/js/helpers/localStorage";
+
+defineProps({
+  reviewLoading: {
+    type: Boolean,
+    default: false,
+  },
+});
 
 const emit = defineEmits(["review-information:prev-page", "review-information:submit"]);
 

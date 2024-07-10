@@ -23,9 +23,6 @@ const prevPage = () => {
 
 <style lang="scss" scoped>
 .legal-person {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include view-default;
 }
 </style>

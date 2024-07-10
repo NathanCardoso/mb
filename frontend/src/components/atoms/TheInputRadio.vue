@@ -28,10 +28,6 @@ defineProps({
     type: String,
     required: true,
   },
-  modelValue: {
-    type: String,
-    required: true,
-  },
 });
 
 const picked = defineModel("picked");
