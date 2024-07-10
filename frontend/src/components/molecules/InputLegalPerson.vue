@@ -13,7 +13,13 @@
     @input:status="inputValidate('cnpj', $event)"
     @input:value="inputValue('cnpj', $event)"
   />
-  <TheInput input-type="date" input-name="Data de abertura" inputId="opening-date" />
+  <TheInput
+    input-type="text"
+    input-name="Data de abertura"
+    input-id="opening-date"
+    validate="date"
+    @input:value="inputValue"
+  />
   <TheInput
     input-type="tel"
     input-name="Telefone"

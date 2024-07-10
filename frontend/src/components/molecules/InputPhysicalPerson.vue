@@ -14,9 +14,10 @@
     @input:value="inputValue('cpf', $event)"
   />
   <TheInput
-    input-type="date"
+    input-type="text"
     input-name="Data de nascimento"
     inputId="date-of-birth"
+    validate="date"
     @input:value="inputValue"
   />
   <TheInput

@@ -1,6 +1,7 @@
 import { ref } from "vue"
 import { cpfValid } from "@/js/helpers/cpfValidate"
 import { cnpjValid } from "@/js/helpers/cnpjValidate"
+import { dateValidade } from "@/js/helpers/dateValidate"
 
 const types = {
 	fullName: {
@@ -15,9 +16,9 @@ const types = {
 		regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
 		message: "A senha precisa ter uma caracter maísculo, 1 minúsculo e 1 digito. Com no mínimo 8 caracteres."
 	},
-	number: {
-		regex: /\d+(\.\d*)?$/,
-		message: 'Utilize apenas números.'
+	date: {
+		regex: /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[012])\/(19\d{2}|20\d{2})$/,
+		message: 'Preencha uma data válida.'
 	},
 	cpf: {
 		message: "CPF inválido."
@@ -50,6 +51,16 @@ function useForm(type, inputData) {
 
 		if(type === 'cnpj') {
 			if(cnpjValid(data)) {
+				error.value = null
+				return true
+			} else {
+				error.value = types[type].message
+				return false
+			}
+		}
+
+		if(type === 'date') {
+			if(dateValidade(data)) {
 				error.value = null
 				return true
 			} else {
