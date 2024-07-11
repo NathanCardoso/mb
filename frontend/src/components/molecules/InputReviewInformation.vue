@@ -113,21 +113,30 @@ const isPhysicalPerson = computed(
 );
 
 watch(
-  () => isEmailValid.value && isFullNameValid.value,
-  (status) => emit("input:status", status)
+  [
+    isEmailValid,
+    isFullNameValid,
+    isDateBirthValid,
+    isCpfValid,
+    isTelephoneValid,
+    isPasswordValid,
+  ],
+  (satu) => {
+    console.log("lululu", satu);
+    chekAllFormPhysicalPerson();
+  }
 );
 
 watch(
-  () =>
-    isEmailValid.value &&
-    isCorporateReasonValid.value &&
-    isOpeningDateValid.value &&
-    isCnpjValid.value &&
-    isTelephoneValid.value &&
-    isPasswordValid.value,
-  (status) => {
-    emit("input:status", status);
-  }
+  [
+    isEmailValid,
+    isCorporateReasonValid,
+    isOpeningDateValid,
+    isCnpjValid,
+    isTelephoneValid,
+    isPasswordValid,
+  ],
+  () => chekAllFormLegalPerson()
 );
 
 const inputValidate = (input, status) => {
@@ -164,6 +173,36 @@ const inputValidate = (input, status) => {
 
 const inputValue = (key, value) => {
   emit("input:value", { key, value });
+};
+
+const chekAllFormLegalPerson = () => {
+  if (
+    isEmailValid.value &&
+    isCorporateReasonValid.value &&
+    isOpeningDateValid.value &&
+    isCnpjValid.value &&
+    isTelephoneValid.value &&
+    isPasswordValid.value
+  ) {
+    emit("input:status", true);
+  } else {
+    emit("input:status", false);
+  }
+};
+
+const chekAllFormPhysicalPerson = () => {
+  if (
+    isEmailValid.value &&
+    isFullNameValid.value &&
+    isDateBirthValid.value &&
+    isCpfValid.value &&
+    isTelephoneValid.value &&
+    isPasswordValid.value
+  ) {
+    emit("input:status", true);
+  } else {
+    emit("input:status", false);
+  }
 };
 
 nextTick(() => (inputDataLocal.value = { ...props.inputData }));

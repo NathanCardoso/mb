@@ -6,7 +6,7 @@
       :type="inputType"
       :name="inputName"
       :id="inputId"
-      :on-blur="onBlur"
+      :onblur="onBlur"
       :maxlength="inputMaxLength"
       v-model="inputValue"
     />
