@@ -8,7 +8,7 @@
     <TheNotification
       v-if="notification"
       :message="messageNotification"
-      :error-request="error"
+      :error-request="errorRequest"
     />
   </div>
 </template>
@@ -22,11 +22,12 @@ import { ref, watch } from "vue";
 
 const emit = defineEmits(["review-information:prev-page"]);
 
-const { data, error, loading, request } = useFetch();
+const { data, loading, request } = useFetch();
 const notification = ref(false);
-const messageNotification = ref("Usuário cadastrado com sucesso");
+const messageNotification = ref("");
 const idTimeoutNotification = ref(null);
 const idTimeoutPrevPage = ref(null);
+const errorRequest = ref(false);
 
 watch(notification, (newValue) => {
   if (newValue) {
@@ -53,7 +54,15 @@ const handleSubmit = async (form) => {
   const { urlApi, options } = POST_USER(form.value);
   await request(urlApi, options);
 
-  if (data.value === null) messageNotification.value = error.value;
+  if (data.value.message) {
+    messageNotification.value = data.value.message;
+    errorRequest.value = true;
+  }
+
+  if (data.value.id) {
+    messageNotification.value = "Usuário cadastrado com sucesso";
+    errorRequest.value = false;
+  }
 
   notification.value = true;
   scrollToTop();

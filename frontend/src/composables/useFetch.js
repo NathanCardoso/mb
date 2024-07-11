@@ -13,7 +13,6 @@ export function useFetch() {
 		try {
 			response = await fetch(url, options)
 			responseJson = await response.json()
-			if (!response.ok) throw new Error("Ocorreu um erro inesperado.")
 
 		} catch (err) {
 			error.value = err

@@ -40,8 +40,8 @@ const emit = defineEmits(["review-information:prev-page", "review-information:su
 
 const typePerson = ref("");
 const dataReview = ref({});
-const physicalPerson = ref({});
-const legalPerson = ref({});
+const physicalPerson = ref({ typePerson: "physicalPerson" });
+const legalPerson = ref({ typePerson: "legalPerson" });
 const isButtonEnable = ref(null);
 
 const isPhysicalPerson = computed(() => typePerson.value === "physicalPerson");
