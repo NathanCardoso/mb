@@ -1,5 +1,5 @@
-const postUser = () => {
-
+const createUser = (user) => {
+//file responsible for creating a user in the database
 }
 
-module.exports = postUser
+module.exports = createUser
