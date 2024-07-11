@@ -1,5 +1,8 @@
 const createUser = (user) => {
-//file responsible for creating a user in the database
+	console.log("cadastrando usuário: ", user)
+	return { id: 1}
 }
 
-module.exports = createUser
+module.exports = {
+	createUser
+}
